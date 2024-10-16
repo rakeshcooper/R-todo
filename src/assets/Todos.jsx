@@ -1,19 +1,23 @@
 import React, { useState , useRef} from "react"
 
 function Todos(){
-    const [data, setData] = useState(["Drink water"])
+    const [datas, setDatas] = useState(["Drink water"])
+    const [newdata, setNewdata] = useState()
     const inputRef = useRef();
+    function inputhandler(e){
+        setNewdata(e.target.value)
+    }
     function addHandler(){
-        setData(...tasks,)
+        setDatas(...datas, newdata)
     }
     return(
         <>
             <div>
-                <input ref={inputRef} type="text" />
+                <input ref={inputRef} type="text" placeholder="Enter new task..." value={newdata} onChange={inputhandler}/>
                 <button onClick={addHandler}>add</button>
             </div>
             <ul>
-                {data.map((list,index) => <li key={index}><span>{list}</span><button>update</button><button>delete</button></li>)}
+                {datas.map((list,index) => <li key={index}><span>{list}</span><button>update</button><button>delete</button></li>)}
             </ul>
         </>
     )
