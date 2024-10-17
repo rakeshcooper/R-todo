@@ -10,6 +10,11 @@ function Todos(){
     function addHandler(){
         setDatas([...datas, newdata])
     }
+
+    function deleteHandler(index){
+        setDatas(datas.filter((_,Findex) => index != Findex))
+    }
+
     return(
         <>
             <div>
@@ -17,7 +22,7 @@ function Todos(){
                 <button onClick={() => addHandler()}>add</button>
             </div>
             <ul>
-                {datas.map((list,index) => <li key={index}><span>{list}</span><button>update</button><button>delete</button></li>)}
+                {datas.map((list,index) => <li key={index}><span>{list}</span><button>update</button><button onClick={() => deleteHandler(index)}>delete</button></li>)}
             </ul>
         </>
     )
