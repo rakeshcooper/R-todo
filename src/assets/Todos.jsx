@@ -28,17 +28,19 @@ function Todos(){
     }
 
     function green(){
-        document.body.style.backgroundColor = "green"
+        // document.body.style.backgroundColor = "green"
     }
 
     function editHandler(){
         // editRef.current.style.display = "none"
         // updateRef.current.style.display = "block"
+        setNewisedited((isedited) => {return isedited = false})
     }
 
     function updateHandler(){
         // editRef.current.style.display = "block"
         // updateRef.current.style.display = "none"
+        setNewisedited(true)
     }
 
     return(
@@ -48,7 +50,7 @@ function Todos(){
                 <button onClick={() => addHandler()}onDoubleClick={green}>add</button>
             </div>
             <ul>
-                {datas.map((list,index) => <li key={index}><span>{list.todo}</span><input ref={inputRefUpdate} type="text" name="updateInput"  /><span><button ref={editRef} onClick={editHandler}>Edit</button><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button><button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)}
+                {datas.map((list,index) => <li key={index}><span>{list.todo}</span><span>{isedited ? <button ref={editRef} onClick={editHandler}>Edit</button> : <span><input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button></span>}<button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)}
             </ul>
         </>
     )
