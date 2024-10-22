@@ -12,7 +12,7 @@ function Todos(){
         setNewdata(e.target.value)
     }
     function addHandler(){
-        const data = {todo:newdata, rId:crypto.randomUUID()}
+        const data = {todo:newdata, rId:crypto.randomUUID(),isEdited: true}
         setDatas(datas => [...datas, data])
         inputRefadd.current.value =""
         
@@ -31,16 +31,30 @@ function Todos(){
         // document.body.style.backgroundColor = "green"
     }
 
-    function editHandler(){
-        // editRef.current.style.display = "none"
-        // updateRef.current.style.display = "block"
-        setNewisedited((isedited) => {return isedited = false})
+    function editHandler(rId){
+        // setNewisedited((isedited) => {return isedited = false})
+        setDatas(datas.filter((element) => {
+            if(element.rId === rId){
+                return element.isEdited == false
+            }
+            console.log(element.isEdited);
+        }))
+
+            // console.log(element.rId);
+            
     }
 
     function updateHandler(){
-        // editRef.current.style.display = "block"
-        // updateRef.current.style.display = "none"
-        setNewisedited(true)
+        // setNewisedited(true)
+
+        // setDatas(datas.filter((element) => {
+        //     if(element.rId === rId){
+        //         return element.isEdited == false
+        //     }}))
+
+        //     console.log(element.isEdited);
+            
+        
     }
 
     return(
@@ -50,7 +64,7 @@ function Todos(){
                 <button onClick={() => addHandler()}onDoubleClick={green}>add</button>
             </div>
             <ul>
-                {datas.map((list,index) => <li key={index}><span>{list.todo}</span><span>{isedited ? <button ref={editRef} onClick={editHandler}>Edit</button> : <span><input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button></span>}<button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)}
+                {datas.map((list,index) => <li key={index}><span>{list.todo}</span><span>{list.rId ? <button ref={editRef} onClick={() => editHandler(list.rId)}>Edit</button> : <span><input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button></span>}<button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)}
             </ul>
         </>
     )
