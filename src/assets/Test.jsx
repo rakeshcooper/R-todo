@@ -30,7 +30,7 @@ function Test() {
     setDatas(updatedData); // Set the new updated state
   }
 
-  function updateHandler(e,rId) {
+  function updateHandler(rId) {
     // Handle the update logic for the task
     const updatedTask = inputRefUpdate.current.value; // Get the updated value
     const updatedData = datas.map((element) =>

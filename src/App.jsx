@@ -7,8 +7,8 @@ function App() {
 
   return (
     <>
-       {/* <Todos /> */}
-       <Test /> 
+       <Todos />
+       {/* <Test />  */}
       {/* <TodoList /> */}
     </>
   )

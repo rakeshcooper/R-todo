@@ -33,18 +33,14 @@ function Todos(){
     }
 
     function editHandler(rId){
-        let editdata = datas.filter((element,index) => {
-            if(element.rId === rId){
-                console.log(element.isEdited);
-                element.isEdited = true
-                console.log(element.isEdited);
-                 
+        let editdata = datas.map((element) =>
+            {  if(element.rId === rId){
+                return ({ ...element, isEdited: !element.isEdited })
+            } else return element
             }
-            return element.isEdited   
-            
-        })
-        setDatas(datas =>[ ...datas,editdata])
-             console.log(datas);
+          );
+        setDatas(editdata)
+             console.log(editdata);
     }
 
     function updateHandler(){
@@ -60,7 +56,14 @@ function Todos(){
             <ul>
                 {/* {datas.map((list,index) => <li key={index}><span>{list.todo}</span><span>{list.rId ? <button ref={editRef} onClick={() => editHandler(list.rId)}>Edit</button> : <span><input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button></span>}<button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)} */}
 
-                {datas.map((list,index) => <li key={index}><span>{list.todo}</span><span> <button ref={editRef} onClick={() => editHandler(list.rId, index)}>Edit</button><span><input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button></span><button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)}
+                {datas.map((list,index) => <li key={index}><span>{list.todo}</span><button ref={editRef} onClick={() => editHandler(list.rId)}>{list.isEdited ? "cancel" : "Edit"}</button><span>
+                    {list.isEdited ? (
+                    <>
+                    <input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button>
+                    </>
+                    ) : (<></>)}
+                    </span>
+                    <button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></li>)}
 
             </ul>
         </>
