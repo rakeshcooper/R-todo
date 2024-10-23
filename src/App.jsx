@@ -1,12 +1,14 @@
 import './App.css'
 import Todos from "./assets/Todos.jsx"
 import TodoList from './assets/TodoList.jsx'
+import Test from './assets/Test.jsx'
 
 function App() {
 
   return (
     <>
-       <Todos /> 
+       {/* <Todos /> */}
+       <Test /> 
       {/* <TodoList /> */}
     </>
   )

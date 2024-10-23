@@ -8,19 +8,20 @@ function Todos(){
     const inputRefUpdate = useRef();
     const editRef = useRef();
     const updateRef = useRef();
+    
     function inputhandler(e){
         setNewdata(e.target.value)
     }
+
     function addHandler(){
-        const data = {todo:newdata, rId:crypto.randomUUID(),isEdited: true}
+        const data = {todo:newdata, rId:crypto.randomUUID(),isEdited: false}
         setDatas(datas => [...datas, data])
-        inputRefadd.current.value =""
+        inputRefadd.current.value = null
         
         console.log(datas);   
     }
 
     
-
     function deleteHandler(rId){
         setDatas(datas.filter((element) => element.rId != rId))
         console.log("deleted",rId);
@@ -28,33 +29,26 @@ function Todos(){
     }
 
     function green(){
-        // document.body.style.backgroundColor = "green"
+     
     }
 
     function editHandler(rId){
-        // setNewisedited((isedited) => {return isedited = false})
-        setDatas(datas.filter((element) => {
+        let editdata = datas.filter((element,index) => {
             if(element.rId === rId){
-                return element.isEdited == false
+                console.log(element.isEdited);
+                element.isEdited = true
+                console.log(element.isEdited);
+                 
             }
-            console.log(element.isEdited);
-        }))
-
-            // console.log(element.rId);
+            return element.isEdited   
             
+        })
+        setDatas(datas =>[ ...datas,editdata])
+             console.log(datas);
     }
 
     function updateHandler(){
-        // setNewisedited(true)
 
-        // setDatas(datas.filter((element) => {
-        //     if(element.rId === rId){
-        //         return element.isEdited == false
-        //     }}))
-
-        //     console.log(element.isEdited);
-            
-        
     }
 
     return(
@@ -64,7 +58,10 @@ function Todos(){
                 <button onClick={() => addHandler()}onDoubleClick={green}>add</button>
             </div>
             <ul>
-                {datas.map((list,index) => <li key={index}><span>{list.todo}</span><span>{list.rId ? <button ref={editRef} onClick={() => editHandler(list.rId)}>Edit</button> : <span><input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button></span>}<button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)}
+                {/* {datas.map((list,index) => <li key={index}><span>{list.todo}</span><span>{list.rId ? <button ref={editRef} onClick={() => editHandler(list.rId)}>Edit</button> : <span><input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button></span>}<button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)} */}
+
+                {datas.map((list,index) => <li key={index}><span>{list.todo}</span><span> <button ref={editRef} onClick={() => editHandler(list.rId, index)}>Edit</button><span><input ref={inputRefUpdate} type="text" name="updateInput"  /><button ref={updateRef} onClick={updateHandler}className="updateBtn">Update</button></span><button>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></span></li>)}
+
             </ul>
         </>
     )
