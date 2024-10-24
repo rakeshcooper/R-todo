@@ -78,7 +78,7 @@ function Todos(){
                     </>
                     ) : (<></>)}
                     </span>
-                    <button onClick={() => isChecked(list.rId)}>Done</button><button onClick={() => deleteHandler(list.rId)}>delete</button></li>)}
+                    <button onClick={() => isChecked(list.rId)}>{list.isChecked ? "Undone" : "Done"}</button><button onClick={() => deleteHandler(list.rId)}>delete</button></li>)}
 
             </ul>
         </>
