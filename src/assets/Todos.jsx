@@ -1,7 +1,7 @@
-import { useState , useRef} from "react"
+import { useState , useRef, useEffect} from "react"
 
 function Todos(){
-    const [datas, setDatas] = useState([])
+    const [datas, setDatas] = useState(JSON.parse(localStorage.getItem("RData") ?? "[]"))
     const [newdata, setNewdata] = useState()
     const [isedited, setNewisedited] = useState(true)
     const inputRefadd = useRef();
@@ -14,11 +14,15 @@ function Todos(){
         setNewdata(e.target.value)
     }
 
+    useEffect(() => {
+        localStorage.setItem('RData', JSON.stringify(datas));
+      }, [datas]);
+
     function addHandler(){
         const data = {todo:newdata, rId:crypto.randomUUID(),isEdited: false, isChecked: false}
         setDatas(datas => [...datas, data])
         inputRefadd.current.value = null
-        
+        // localStorage.setItem("RData",JSON.stringify(datas))
         console.log(datas);   
     }
 
@@ -67,7 +71,7 @@ function Todos(){
     return(
         <>
             <div>
-                <input ref={inputRefadd} type="text" placeholder="Enter new task..."  onChange={(e) => inputhandler(e)}/>
+                <input ref={inputRefadd} type="text" placeholder="Enter new task..."  onInput={(e) => inputhandler(e)}/>
                 <button onClick={() => addHandler()}onDoubleClick={green}>add</button>
             </div>
             <ul>
