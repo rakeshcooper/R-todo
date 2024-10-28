@@ -3,7 +3,6 @@ import { useState , useRef, useEffect} from "react"
 function Todos(){
     const [datas, setDatas] = useState(JSON.parse(localStorage.getItem("RData") ?? "[]"))
     const [newdata, setNewdata] = useState()
-    const [isedited, setNewisedited] = useState(true)
     const inputRefadd = useRef();
     const inputRefUpdate = useRef();
     const editRef = useRef();
