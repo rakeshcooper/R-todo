@@ -4,6 +4,7 @@ function Samples(){
 
     const [data, setData] = useState(JSON.parse(localStorage.getItem("RuItems") ?? "[]"))
     const [newdata, setNewdata] = useState()
+    let uData
     function addHandler(){
         setData(data => [{todo: newdata, rId:uuidv4(), isEdited: false, isChecked: false}, ...data])
         console.log(data);
@@ -21,12 +22,13 @@ function Samples(){
     }
 
     function inputUpdatehandler(e){
+        // uData = e.target.value 
         setNewdata(e.target.value)
     }
 
     function updatehandler(rId){
         const updateData = data.map((element) => 
-            element.rId === rId ? {...element,todo:newdata,  isEdited : !element.isEdited} : element
+            element.rId === rId ? {...element,todo: newdata,  isEdited : !element.isEdited} : element
         )
         setData(updateData)
     }
