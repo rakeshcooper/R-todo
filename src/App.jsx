@@ -11,7 +11,7 @@ function App() {
        {/* <Todos /> */}
        {/* <Test />  */}
       {/* <TodoList /> */}
-      <Samples/>
+      {/* <Samples/> */}
     </>
   )
 }

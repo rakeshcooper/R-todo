@@ -63,7 +63,7 @@ function Samples(){
                 <button onClick={() => editHandler(datas.rId)}>{datas.isEdited ? "cancel" : "edit"}</button> 
             </span>
             <button onClick={() => deleteHandler(datas.rId)}>delete</button>
-            <button onClick={() => checkedHandler(datas.rId)}>{datas.isChecked ? "undone" : "done"}</button>
+            <button onClick={() => checkedHandler(datas.rId)}>{datas.isChecked ? "unddone" : "done"}</button>
             </li>)) }
         </ul>
 
