@@ -28,7 +28,21 @@ function Testing(){
            const updateData = data.map((element) => element.rId === rId ? {...element, todo:newdata, isEdited: false} : element)
            setData(updateData)
        }
-   
+       function checkHandler(rId){
+        const checkedData = data.map((element) => element.rId === rId ? {...element, isChecked:!element.isChecked} : element)
+        setData(checkedData)
+    }
+
+    function deleteHandler(rId){
+        const deletedData = data.filter((element) => element.rId !== rId)
+        setData(deletedData)
+    }
+
+    useEffect(() => {
+        localStorage.setItem("TRItems", JSON.stringify(data))
+        console.log("saved",data);
+        
+    },[data])
 
 
     return(
