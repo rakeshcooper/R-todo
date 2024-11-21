@@ -4,7 +4,7 @@ function Samples(){
 
     const [data, setData] = useState(JSON.parse(localStorage.getItem("RuItems") ?? "[]"))
     const [newdata, setNewdata] = useState()
-    let uData
+    
     function addHandler(){
         setData(data => [{todo: newdata, rId:uuidv4(), isEdited: false, isChecked: false}, ...data])
         console.log(data);

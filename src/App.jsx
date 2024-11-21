@@ -3,6 +3,7 @@ import Todos from "./assets/Todos.jsx"
 import TodoList from './assets/TodoList.jsx'
 import Test from './assets/Test.jsx'
 import Samples from './assets/Samples.jsx'
+import Testing from './assets/testing.jsx'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
        {/* <Test />  */}
       {/* <TodoList /> */}
       {/* <Samples/> */}
+      <Testing />
     </>
   )
 }
