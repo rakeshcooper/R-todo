@@ -14,6 +14,21 @@ function Testing(){
         setNewdata(e.target.value)
     }
 
+    function editHandler(rId){
+        const editData =  data.map((element) => element.rId === rId ? {...element, isEdited: !element.isEdited} : element)
+           setData(editData)
+           console.log(data);
+       }
+   
+       function updateValue(e){
+           setNewdata(e.target.value)
+       }
+   
+       function updateHandler(rId){
+           const updateData = data.map((element) => element.rId === rId ? {...element, todo:newdata, isEdited: false} : element)
+           setData(updateData)
+       }
+   
 
 
     return(
