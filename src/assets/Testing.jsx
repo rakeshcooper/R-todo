@@ -28,7 +28,7 @@ function Testing(){
            const updateData = data.map((element) => element.rId === rId ? {...element, todo:newdata, isEdited: false} : element)
            setData(updateData)
        }
-       function checkHandler(rId){
+       function checkHandlers(rId){
         const checkedData = data.map((element) => element.rId === rId ? {...element, isChecked:!element.isChecked} : element)
         setData(checkedData)
     }
@@ -55,7 +55,7 @@ function Testing(){
             <span>{ datas.isEdited ? (<><input type="text" defaultValue={datas.todo} onInput={(e) => updateValue(e)}/><button onClick={() => updateHandler(datas.rId)}>update</button></>) : (<></>)}</span>
             <button onClick={() => editHandler(datas.rId)}>{datas.isEdited  ? "cancel" : "edit"}</button>
             <button onClick={() => deleteHandler(datas.rId)}>delete</button>
-            <button onClick={() => checkHandler(datas.rId)}>{datas.isChecked ? "undone" : "done"}</button>
+            <button onClick={() => checkHandlers(datas.rId)}>{datas.isChecked ? "undone" : "done"}</button>
             </li>))}
         </ul>
         </>
