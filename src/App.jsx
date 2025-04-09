@@ -4,6 +4,7 @@ import TodoList from './assets/TodoList.jsx'
 import Test from './assets/Test.jsx'
 import Samples from './assets/Samples.jsx'
 import Testing from './assets/testing.jsx'
+import SampleTest from './assets/SampleTest.jsx'
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
        {/* <Test />  */}
       {/* <TodoList /> */}
       {/* <Samples/> */}
-      <Testing />
+      {/* <Testing /> */}
+      <SampleTest/>
     </>
   )
 }
