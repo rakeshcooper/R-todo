@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function SampleTest(){
+    
 const rId = crypto.randomUUID();    
-const [data,setData] = useState([])
+const [data,setData] = useState(localStorage.getItem("rNewItems") ?? "[]")
 const [newData, setnewData] = useState()
 
 function addHandler(){
@@ -51,6 +52,10 @@ function checkedHandler(rId){
     console.log(checkedData);
     setData(checkedData)
 }
+
+useEffect(() => {
+    localStorage.setItem("rNewItems",JSON.stringify(data))
+},[data])
 
 
 
