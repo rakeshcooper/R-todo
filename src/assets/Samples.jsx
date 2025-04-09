@@ -7,7 +7,7 @@ function Samples() {
 
     function addHandler() {
         setData(data => [{ todo: newdata, rId: uuidv4(), isEdited: false, isChecked: false }, ...data])
-        console.log(newdatadata);
+        console.log(data);
     }
 
     function inputData(e) {
