@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 
 function Newtest() {
     const [data, setData] = useState(JSON.parse(localStorage.getItem("NewtestItems") ?? "[]"))
     const [newData, setNewData] = useState()
+    let inputRef = useRef(null);
     const randomId = crypto.randomUUID();
 
     function inputHandler(e) {
@@ -13,6 +14,7 @@ function Newtest() {
     function addHandler() {
         setData(prevData => [{ todo: newData, ID: randomId, isChecked: false, isEdited: false },
         ...prevData])
+        inputRef.current.value = ""
     }
 
     function editHandler(ID) {
@@ -56,7 +58,7 @@ function Newtest() {
         <h1>Todo</h1>
         <h3>Enter Todo Below</h3>
         <div>
-            <input onInput={(e) => inputHandler(e)} type="text" placeholder="Enter a todo" />
+            <input onInput={(e) => inputHandler(e)} ref={inputRef} type="text" placeholder="Enter a todo" />
             <button onClick={addHandler}>Add</button>
         </div>
         <ul>
