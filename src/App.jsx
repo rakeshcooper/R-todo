@@ -5,17 +5,20 @@ import Test from './assets/Test.jsx'
 import Samples from './assets/Samples.jsx'
 import Testing from './assets/testing.jsx'
 import SampleTest from './assets/SampleTest.jsx'
+import Newtest from './assets/Newtest.jsx'
+
 
 function App() {
 
   return (
     <>
-       {/* <Todos /> */}
-       {/* <Test />  */}
+      {/* <Todos /> */}
+      {/* <Test />  */}
       {/* <TodoList /> */}
-     {/* <Samples/> */}
+      {/* <Samples/> */}
       {/* <Testing /> */}
-      <SampleTest/>
+      {/* <SampleTest /> */}
+      <Newtest />
     </>
   )
 }
