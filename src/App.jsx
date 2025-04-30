@@ -6,6 +6,7 @@ import Samples from './assets/Samples.jsx'
 import Testing from './assets/testing.jsx'
 import SampleTest from './assets/SampleTest.jsx'
 import Newtest from './assets/Newtest.jsx'
+import Headercomponent from './assets/Headercomponent.jsx'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       {/* <Samples/> */}
       {/* <Testing /> */}
       {/* <SampleTest /> */}
+      <Headercomponent />
       <Newtest />
     </>
   )
