@@ -7,7 +7,7 @@ import Testing from './assets/testing.jsx'
 import SampleTest from './assets/SampleTest.jsx'
 import Newtest from './assets/Newtest.jsx'
 import Headercomponent from './assets/Headercomponent.jsx'
-
+import TodoApi from './assets/TodoApi.jsx'
 
 function App() {
 
@@ -19,8 +19,9 @@ function App() {
       {/* <Samples/> */}
       {/* <Testing /> */}
       {/* <SampleTest /> */}
-      <Headercomponent />
-      <Newtest />
+      {/* <Headercomponent />
+      <Newtest /> */}
+      <TodoApi />
     </>
   )
 }
