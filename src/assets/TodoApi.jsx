@@ -15,7 +15,6 @@ function TodoApi() {
 
     function inputHandler(e) {
         console.log(e.target.value);
-
         setNewTodo(e.target.value)
     }
 
@@ -27,8 +26,7 @@ function TodoApi() {
     }
 
     function deleteHandler(ID) {
-        const deletedData = data.filter(element => { return ID != element.id }
-        )
+        const deletedData = data.filter(element => { return ID != element.id })
         setData(deletedData)
     }
 
