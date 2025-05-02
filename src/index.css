@@ -27,6 +27,8 @@ li {
 
 .head_list {
     cursor: pointer;
+    text-decoration: none;
+    color: #fff;
 }
 
 button {

@@ -14,15 +14,15 @@ function App() {
 
   return (
     <>
+      <Headercomponent />
       {/* <Todos /> */}
       {/* <Test />  */}
       {/* <TodoList /> */}
       {/* <Samples/> */}
       {/* <Testing /> */}
       {/* <SampleTest /> */}
-      {/* <Headercomponent />
-      <Newtest /> */}
-      <TodoApi />
+      {/*<Newtest /> */}
+      {/* <TodoApi /> */}
     </>
   )
 }

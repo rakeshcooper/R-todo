@@ -1,18 +1,26 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import React from 'react'
+import TodoApi from './TodoApi';
+import Newtest from './Newtest';
 
 function Headercomponent() {
   return (
     <>
-      <div className='Header_bg'>
-        <div className="container">
-          <ul className='Header_row'>
-            <li className='head_list'>Todo</li>
-            <li className='head_list'>Home</li>
-            <li className='head_list'>About</li>
-          </ul>
+      <Router>
+        <div className='Header_bg'>  
+            <div className="container">  
+              <nav className='Header_row'>
+                  <Link className='head_list' to="/">Newtest</Link>
+                  <Link className='head_list' to="/todoapi">TodoApi</Link>
+              </nav>
+            </div>
         </div>
-      </div>
+
+        <Routes>
+          <Route path="/todoapi" element={<TodoApi />} />
+          <Route path="/" element={<Newtest />} />
+        </Routes>
+    </Router>
     </>
   )
 }
